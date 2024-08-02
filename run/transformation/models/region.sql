@@ -1,0 +1,27 @@
+
+  
+    
+
+  create  table "entrepot"."emploi"."region__dbt_tmp"
+  
+  
+    as
+  
+  (
+    WITH
+    region AS (
+        SELECT
+            version AS version,
+            insee_reg AS code,            
+            nom AS nom,
+            long AS long,
+            lat AS lat            
+        FROM
+            "entrepot"."public"."cog_carto_region"
+    )
+    SELECT
+        *
+    FROM
+        region
+  );
+  
